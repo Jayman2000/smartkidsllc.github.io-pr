@@ -1,0 +1,30 @@
+name: Open Auto-update Pull Request
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "0 0 * * MON"
+
+jobs:
+    run_update_scripts_and_open_pr:
+        name: Run update scripts and open PR
+        runs-on: ubuntu-latest
+        steps:
+            - uses: cachix/install-nix-action@v30
+            - uses: actions/checkout@v4
+            - name: Run update-script-part-1
+              run: "nix --extra-experimental-features 'nix-command flakes' run .#update-script-part-1"
+              env:
+                  GH_TOKEN: ${{ github.token }}
+            - name: Run update-script-part-2
+              run: "nix --extra-experimental-features 'nix-command flakes' run .#update-script-part-2"
+            - uses: peter-evans/create-pull-request@v7
+              with:
+                  commit-message: Run update scripts
+                  branch: automatic-updates
+                  delete-branch: true
+                  title: Automatic updates
+                  body: >-
+                    This pull request was automatically opened by
+                    [this workflow](https://github.com/smartkidsllc/smartkidsllc.github.io/blob/main/.github/workflows/auto-update-prs.yaml).
+                  labels: dependencies
