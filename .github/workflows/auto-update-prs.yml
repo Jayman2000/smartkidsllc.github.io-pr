@@ -3,7 +3,7 @@ name: Open Auto-update Pull Request
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 0 * * MON"
+        - cron: "40 15 * * FRI"
 
 jobs:
     run_update_scripts_and_open_pr:
