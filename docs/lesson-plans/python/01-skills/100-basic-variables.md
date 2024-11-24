@@ -13,7 +13,7 @@ This skill has no dependencies.
 
 When you teach this skill, your goal is to make it so that students know that a variable is a container for information\*.
 
-\*For most intents and purposes, it’s fine to define a variable as a container for information. However, that definition is not 100% accurate, and students may not be able to fix certain bugs if they only know that definition. For a more accurate definition of variables, see [this section of the _Python_ documentation](https://docs.python.org/3/reference/datamodel.html).
+\*For most intents and purposes, it’s fine to define a variable as a container for information. However, that definition is not 100% accurate, and students may not be able to fix certain bugs if they only know that definition. For a more accurate definition of variables, see [the Advanced Understanding of Variables skill](advanced-variables).
 
 ## Activities
 
