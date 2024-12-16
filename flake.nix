@@ -3,7 +3,7 @@
 
   inputs = {
     # update-script-part-1 will automatically keep this input up to date:
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     # update-script-part-1 will automatically keep this input up to date:
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
   };
