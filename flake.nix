@@ -107,7 +107,12 @@
         };
         devShells.default = pkgs.mkShellNoCC {
           name = "shell-for-working-on-smartkidsllc.github.io";
-          packages = [ pkgs.corepack ];
+          packages = [
+            pkgs.corepack
+            # TODO: Only put uv?
+            pkgs.python3
+            pkgs.python3.pkgs.uv
+          ];
         };
       }
     );

@@ -1,0 +1,23 @@
+# NOTE: For the most part, the SmartKids Docs site is not a Python project.
+# This pyproject.toml file exists because some of the code in the SmartKids
+# Docs site repository depends on some Python distribution packages.
+[project]
+name = "smartkids-docs-python-components"
+# I don’t really want this Python distribution package to have a version
+# number, but the pyproject.toml specification requires that we declare a
+# version number [1].
+#
+# [1]: <https://packaging.python.org/en/latest/specifications/pyproject-toml#declaring-project-metadata-the-project-table>
+version = "0"
+requires-python = ">=3.10"
+dependencies = [ "tomlkit" ]
+
+[project.scripts]
+potentially-bump-requires-python-version = "update_script_helper:potentially_bump_requires_python_version"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["update_script_helper"]
